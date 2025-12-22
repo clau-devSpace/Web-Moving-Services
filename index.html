@@ -1,0 +1,1027 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moving Company - Florida's Top Moving Services</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+        }
+
+        /* Header */
+        header {
+            background-color: #1a1a1a;
+            padding: 20px 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+            z-index: 10;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background-color: transparent;
+            border: 2px solid #FDDD58;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #FDDD58;
+            font-size: 20px;
+        }
+
+        .logo-text {
+            color: #FDDD58;
+            font-size: 20px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #FDDD58;
+        }
+
+        .services-link::after {
+            content: ' ▾';
+        }
+
+        .cta-button {
+            background-color: #FDDD58;
+            color: #1a1a1a;
+            padding: 12px 24px;
+            border-radius: 25px;
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 12px;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            background-image: url("imagenes/primer-plano-de-un-hombre-que-lleva-cajas-de-carton-mientras-se-traslada-un-nuevo-apartamento.jpg");
+            background-size: cover;
+            background-position: center;
+            padding: 80px 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            min-height: 600px;
+        }
+
+        .hero-content {
+            flex: 1;
+            max-width: 550px;
+        }
+
+        .hero h1 {
+            color: #FDDD58;
+            font-size: 52px;
+            line-height: 1.2;
+            margin-bottom: 25px;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+
+        .hero-description {
+            color: white;
+            font-size: 16px;
+            line-height: 1.6;
+            margin-bottom: 25px;
+        }
+
+        .rating {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 30px;
+        }
+
+        .star {
+            color: #FDDD58;
+            font-size: 18px;
+        }
+
+        .rating-text {
+            color: white;
+            font-size: 14px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .primary-button {
+            background-color: #FDDD58;
+            color: #1a1a1a;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 25px;
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 13px;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .primary-button:hover {
+            transform: scale(1.05);
+        }
+
+        .secondary-button {
+            background-color: transparent;
+            color: white;
+            padding: 15px 30px;
+            border: 2px solid white;
+            border-radius: 25px;
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 13px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .secondary-button:hover {
+            background-color: white;
+            color: #1a1a1a;
+        }
+
+        /* Quote Form */
+        .quote-form {
+            background-color: rgba(26, 26, 26, 0.85);
+            padding: 35px;
+            border-radius: 10px;
+            width: 380px;
+        }
+
+        .form-header {
+            margin-bottom: 20px;
+        }
+
+        .form-header h2 {
+            color: #FDDD58;
+            font-size: 24px;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+        }
+
+        .stars {
+            color: #FDDD58;
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+
+        .form-subtitle {
+            color: white;
+            font-size: 12px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 15px;
+            border: none;
+            border-radius: 25px;
+            background-color: #333;
+            color: white;
+            font-size: 14px;
+        }
+
+        .form-group input::placeholder {
+            color: #aaa;
+        }
+
+        .form-group select {
+            appearance: none;
+            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="8"><path fill="white" d="M0 0l6 8 6-8z"/></svg>');
+            background-repeat: no-repeat;
+            background-position: right 15px center;
+        }
+
+        .submit-button {
+            width: 100%;
+            background-color: #FDDD58;
+            color: #1a1a1a;
+            padding: 15px;
+            border: none;
+            border-radius: 25px;
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 14px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        /* Services Section */
+        .services-section {
+            padding: 80px 60px;
+            text-align: center;
+            background-color: #f5f5f5;
+        }
+
+        .services-section h2 {
+            font-size: 40px;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+
+        .services-subtitle {
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 50px;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto 50px;
+        }
+
+        .service-card-new {
+    display: block;
+    text-decoration: none;
+    border-radius: 16px;
+    overflow: hidden;
+    position: relative;
+    height: 360px;
+    transition: transform 0.3s ease;
+}
+
+.service-card-new:hover {
+    transform: translateY(-6px);
+}
+
+/* Background image */
+.service-bg {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+/* Overlay */
+.service-overlay {
+    position: absolute;
+    inset: 0;
+    padding: 30px;
+    background: linear-gradient(
+        180deg,
+        rgba(0,0,0,0.55) 0%,
+        rgba(0,0,0,0.25) 45%,
+        rgba(0,0,0,0.75) 100%
+    );
+}
+
+/* Title bottom-left */
+.service-overlay h3 {
+    position: absolute;
+    bottom: 30px;
+    left: 30px;
+    color: #ffffff;
+    font-size: 26px;
+    font-weight: bold;
+    line-height: 1.2;
+    max-width: 80%;
+}
+
+/* Arrow top-right */
+.service-overlay .arrow {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background-color: rgba(255,255,255,0.9);
+    color: #1a1a1a;
+    font-size: 22px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* Hover arrow animation */
+.service-card-new:hover .arrow {
+    transform: translateX(6px);
+}
+
+/* Optional: subtle zoom image on hover */
+.service-card-new:hover .service-bg {
+    transform: scale(1.05);
+    transition: transform 0.4s ease;
+}
+
+        .get-quote-button {
+            background-color: #FDDD58;
+            color: #1a1a1a;
+            padding: 15px 50px;
+            border: none;
+            border-radius: 25px;
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 14px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        /* Testimonials Section */
+        .testimonials-section {
+            background-color: #1a1a1a;
+            padding: 80px 60px;
+            text-align: center;
+        }
+
+        .testimonials-section h2 {
+            color: #FDDD58;
+            font-size: 40px;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+
+        .testimonials-subtitle {
+            color: white;
+            font-size: 16px;
+            margin-bottom: 50px;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto 40px;
+        }
+
+        .testimonial-card {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            text-align: left;
+        }
+
+        .testimonial-stars {
+            color: #FDDD58;
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+
+        .testimonial-date {
+            color: #666;
+            font-size: 13px;
+            margin-bottom: 15px;
+        }
+
+        .testimonial-card h3 {
+            font-size: 18px;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+
+        .testimonial-text {
+            color: #333;
+            font-size: 14px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .testimonial-author {
+            font-weight: bold;
+            color: #1a1a1a;
+            font-size: 14px;
+        }
+
+        .read-reviews-button {
+            background-color: #FDDD58;
+            color: #1a1a1a;
+            padding: 15px 40px;
+            border: none;
+            border-radius: 25px;
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 14px;
+            cursor: pointer;
+        }
+
+        /* Final CTA Section */
+        .final-cta {
+            background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="400"><rect fill="%23333333" width="1200" height="400"/></svg>');
+            background-size: cover;
+            background-position: center;
+            padding: 80px 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            min-height: 300px;
+        }
+
+        .final-cta-content h2 {
+            color: white;
+            font-size: 36px;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .final-cta-content p {
+            color: #FDDD58;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .final-cta-button {
+            background-color: #FDDD58;
+            color: #1a1a1a;
+            padding: 18px 45px;
+            border: none;
+            border-radius: 25px;
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 15px;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .final-cta-button:hover {
+            transform: scale(1.05);
+        }
+
+        /* About Section */
+        .about-section {
+            background-color: #f5f5f5;
+            padding: 0;
+        }
+
+        .about-content {
+            display: flex;
+            align-items: stretch;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .about-text {
+            flex: 1;
+            padding: 80px 60px;
+            background-color: #f5f5f5;
+        }
+
+        .about-text h2 {
+            font-size: 36px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            border-bottom: 3px solid #FDDD58;
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+
+        .about-text h3 {
+            font-size: 28px;
+            margin: 25px 0 20px 0;
+            font-weight: bold;
+        }
+
+        .about-text .highlight {
+            color: #FDDD58;
+        }
+
+        .about-description {
+            color: #333;
+            font-size: 15px;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .about-button {
+            background-color: #FDDD58;
+            color: #1a1a1a;
+            padding: 15px 35px;
+            border: none;
+            border-radius: 25px;
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 13px;
+            cursor: pointer;
+            margin: 20px 0;
+        }
+
+        .locally-owned {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-top: 25px;
+        }
+
+        .flag-icon {
+            font-size: 40px;
+        }
+
+        .locally-text {
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .owned-highlight {
+            color: #FDDD58;
+        }
+
+        .operated-text {
+            font-size: 16px;
+        }
+
+        .about-image {
+            flex: 1;
+            background-color: #c5b8a8;
+            min-height: 500px;
+        }
+
+        /* Portfolio Section */
+        .portfolio-section {
+            background-color: white;
+            padding: 80px 60px;
+            text-align: center;
+        }
+
+        .portfolio-section h2 {
+            font-size: 40px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+
+        .portfolio-subtitle {
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 40px;
+        }
+
+        .portfolio-filters {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 50px;
+        }
+
+        .filter-btn {
+            background-color: #2a2a2a;
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 25px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .filter-btn.active {
+            background-color: #1a1a1a;
+        }
+
+        .filter-btn:hover {
+            background-color: #1a1a1a;
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .portfolio-item {
+            background-color: #a8b5a3;
+            height: 280px;
+            border-radius: 8px;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: #1a1a1a;
+            color: white;
+            padding: 60px 60px 0;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1.5fr;
+            gap: 60px;
+            max-width: 1400px;
+            margin: 0 auto 40px;
+        }
+
+        .footer-column h3 {
+            color: #FDDD58;
+            font-size: 20px;
+            margin-bottom: 25px;
+            text-transform: uppercase;
+        }
+
+        .footer-logo {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .footer-logo-icon {
+            width: 50px;
+            height: 50px;
+            background-color: transparent;
+            border: 2px solid #FDDD58;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #FDDD58;
+            font-size: 24px;
+            flex-shrink: 0;
+        }
+
+        .footer-logo-text {
+            flex: 1;
+        }
+
+        .footer-logo-text strong {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 16px;
+        }
+
+        .footer-logo-text p {
+            font-size: 13px;
+            line-height: 1.6;
+            color: #ccc;
+        }
+
+        .footer-contact {
+            font-size: 14px;
+            line-height: 2;
+        }
+
+        .footer-links {
+            list-style: none;
+            font-size: 14px;
+            line-height: 2.5;
+        }
+
+        .quote-box {
+            border: 2px solid #FDDD58;
+            padding: 30px;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .quote-phone {
+            font-size: 24px;
+            font-weight: bold;
+            margin: 20px 0;
+        }
+
+        .footer-quote-btn {
+            background-color: #FDDD58;
+            color: #1a1a1a;
+            padding: 15px 40px;
+            border: none;
+            border-radius: 25px;
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 14px;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #333;
+            padding: 25px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 12px;
+            color: #999;
+        }
+
+        .footer-bottom-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .footer-cta {
+            background-color: #000;
+            padding: 25px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .cta-phone {
+            color: #FDDD58;
+        }
+
+        .footer-cta-btn {
+            background-color: #FDDD58;
+            color: #1a1a1a;
+            padding: 12px 35px;
+            border: none;
+            border-radius: 25px;
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 13px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <div class="logo-icon">★</div>
+            <span class="logo-text">Moving Company</span>
+        </div>
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#services" class="services-link">Services</a>
+            <a href="#about">About</a>
+            <a href="#reviews">Reviews</a>
+            <a href="#contact">Contact</a>
+            <span class="cta-button">GET FREE QUOTE</span>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Florida's Top<br>Moving Services</h1>
+            <p class="hero-description">
+                Trusted, professional movers specializing<br>
+                in last-minute and local relocations throughout Florida.<br>
+                We handle your belongings with care and efficiency.
+            </p>
+            <div class="rating">
+                <span class="star"></span>
+                <span class="rating-text">St.Petesburg, Tampa Bay</span>
+            </div>
+            <div class="hero-buttons">
+                <button class="primary-button">GET FREE QUOTE</button>
+                <button class="secondary-button">VIEW OUR SERVICES</button>
+            </div>
+        </div>
+
+        <div class="quote-form">
+            <div class="form-header">
+                <h2>Get Your Free Quote</h2>
+                <div class="stars">★ ★ ★ ★ ★</div>
+                <p class="form-subtitle">Off Reseals or Real-licences</p>
+            </div>
+            <form>
+                <div class="form-group">
+                    <input type="text" placeholder="Your Name">
+                </div>
+                <div class="form-group">
+                    <input type="email" placeholder="Your Email">
+                </div>
+                <div class="form-group">
+                    <input type="tel" placeholder="Your Phone">
+                </div>
+                <div class="form-group">
+                    <select>
+                        <option>Your ZIP Code</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <select>
+                        <option>Local Residential Moving</option>
+                    </select>
+                </div>
+                <button type="submit" class="submit-button">GET FREE QUOTE</button>
+            </form>
+        </div>
+    </section>
+
+    <section class="about-section">
+        <div class="about-content">
+            <div class="about-text">
+                <h2>ABOUT US</h2>
+                <h3>YOUR TRUSTED <span class="highlight">MOVERS</span> IN FLORIDA</h3>
+                <p class="about-description">
+                    With over 10 years of experience, we are Florida's top-rated moving company, dedicated to providing exceptional moving services.
+                </p>
+                <p class="about-description">
+                    Our licensed and insured movers are committed to delivering stress-free and efficient moves for our customers. We take pride in handling your belongings as if they were our own and ensuring your complete satisfaction with every move.
+                </p>
+                <button class="about-button">LEARN MORE ABOUT US</button>
+                <div class="locally-owned">
+                    <span class="flag-icon">🏴</span>
+                    <div>
+                        <span class="locally-text">LOCALLY <span class="owned-highlight">OWNED</span></span><br>
+                        <span class="operated-text">& OPERATED</span>
+                    </div>
+                </div>
+            </div>
+            <div class="about-image"></div>
+        </div>
+    </section>
+
+    <section class="services-section">
+        <h2>What we Offer</h2>
+        <p class="services-subtitle">Comprehensive moving solutions tailored to meet your needs anywhere in Florida.</p>
+    
+        <div class="services-grid">
+            <a href="#service-24-7" class="service-card-new">
+                <div class="service-bg"
+                    style="background-image: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c');">
+                    <div class="service-overlay">
+                        <h3>Moving</h3>
+                        <span class="arrow">→</span>
+                    </div>
+                </div>
+            </a>
+            <a href="#service-24-7" class="service-card-new">
+                <div class="service-bg"
+                    style="background-image: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c');">
+                    <div class="service-overlay">
+                        <h3>Junk Removal</h3>
+                        <span class="arrow">→</span>
+                    </div>
+                </div>
+            </a>
+            <a href="#service-24-7" class="service-card-new">
+                <div class="service-bg"
+                    style="background-image: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c');">
+                    <div class="service-overlay">
+                        <h3>Pickup and Delivery</h3>
+                        <span class="arrow">→</span>
+                    </div>
+                </div>
+            </a>
+
+           
+
+            
+        </div>
+
+        <button class="get-quote-button">GET A QUOTE</button>
+    </section>
+
+    <section class="testimonials-section">
+        <h2>Feedback from Our Clients</h2>
+        <p class="testimonials-subtitle">Read testimonials from happy customers across Florida</p>
+        
+        <div class="testimonials-grid">
+            <div class="testimonial-card">
+                <div class="testimonial-stars">★★★★★</div>
+                <div class="testimonial-date">Feb 16, 2024</div>
+                <h3>Residential Move</h3>
+                <p class="testimonial-text">
+                    Moving Company handled our relocation from Orlando to Miami with exceptional efficiency. Prized our devices came secured, scratch-free, our keepsakes, and marching belongings. Their time fare compile more wasteful. Im lastlocated hager!
+                </p>
+                <p class="testimonial-author">Thomas R.</p>
+            </div>
+
+            <div class="testimonial-card">
+                <div class="testimonial-stars">★★★★★</div>
+                <div class="testimonial-date">Um: 9, 2024</div>
+                <h3>Commercial Relocation</h3>
+                <p class="testimonial-text">
+                    "We chose Miamiasy from ohL.ir our office relocation. Total lyas tare Nico taller a transition and hassles. verste meg ensemble sr regolged! Posik tted weree Pages until De we neee heard monocarboxylic tern. Prater aget actuar de errn, nice enthusi tones chico negativas ."
+                </p>
+                <p class="testimonial-author">Sarah L.</p>
+            </div>
+
+            <div class="testimonial-card">
+                <div class="testimonial-stars">★★★★★</div>
+                <div class="testimonial-date">Drer: 12, 2023</div>
+                <h3>Long Distance Moving</h3>
+                <p class="testimonial-text">
+                    "Go se feeling u with ch our nental Florida's moove. Staurrting fulfilling nien Slab territories hathenattici nominee l hm invasion medie orginarento pañam. Theny alta lög excelled communicación any so panging. Mills Pince frictions: Der no striessa!"
+                </p>
+                <p class="testimonial-author">James B.</p>
+            </div>
+        </div>
+
+        <button class="read-reviews-button">READ MORE REVIEWS</button>
+    </section>
+
+    <section class="final-cta">
+        <div class="final-cta-content">
+            <h2>Need Reliable Movers in Florida?</h2>
+            <p>GET YOUR FREE QUOTE TODAY!</p>
+        </div>
+        <button class="final-cta-button">GET FREE QUOTE</button>
+    </section>
+
+    
+
+    <section class="portfolio-section">
+        <h2>OUR RECENT WORK</h2>
+        <p class="portfolio-subtitle">Browse through our portfolio of successful moves across Florida.</p>
+        
+        <div class="portfolio-filters">
+            <button class="filter-btn active">All</button>
+            <button class="filter-btn">Residential</button>
+            <button class="filter-btn">Commercial</button>
+            <button class="filter-btn">Long Distance</button>
+        </div>
+
+        <div class="portfolio-grid">
+            <div class="portfolio-item"></div>
+            <div class="portfolio-item"></div>
+            <div class="portfolio-item"></div>
+            <div class="portfolio-item"></div>
+            <div class="portfolio-item"></div>
+            <div class="portfolio-item"></div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>GET IN TOUCH</h3>
+                <div class="footer-logo">
+                    <div class="footer-logo-icon">★</div>
+                    <div class="footer-logo-text">
+                        <strong>MOVING COMPANY</strong>
+                        <p>Florida's trusted moving company offering top-rated residential commercialeries moving Pionncos, jintelci, Martin, Prinrfrit, Tianpa &</p>
+                    </div>
+                </div>
+                <div class="footer-contact">
+                    <p>📞 (305) 800-1234</p>
+                    <p>✉️ info@movingcompany.com</p>
+                </div>
+            </div>
+
+            <div class="footer-column">
+                <h3>QUICK LINKS</h3>
+                <ul class="footer-links">
+                    <li>🏠 Home</li>
+                    <li>📋 Services</li>
+                    <li>ℹ️ About</li>
+                    <li>⭐ Reviews</li>
+                    <li>📧 Contact</li>
+                </ul>
+            </div>
+
+            <div class="footer-column quote-box">
+                <h3>GET A FREE QUOTE</h3>
+                <p class="quote-phone">📞 (305) 800-1234</p>
+                <button class="footer-quote-btn">GET FREE QUOTE</button>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2024 Moving Company, All Rights reserved</p>
+            <div class="footer-bottom-links">
+                <span>Privacy Policy</span>
+                <span>Sitemap</span>
+                <span>Weemy Flatenter - ›.%</span>
+            </div>
+        </div>
+
+        <div class="footer-cta">
+            <span>READY TO MOVE? CALL <span class="cta-phone">(305) 800-1234</span></span>
+            <button class="footer-cta-btn">GET FREE QUOTE</button>
+        </div>
+    </footer>
+</body>
+</html>
