@@ -88,6 +88,53 @@ nav a:hover {
   cursor: pointer;
 }
 
+/* Dropdown Menu */
+.services-dropdown {
+    position: relative;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #2a2a2a;
+    min-width: 220px;
+    border-radius: 8px;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    margin-top: 10px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+    overflow: hidden;
+}
+
+.services-dropdown:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    margin-top: 15px;
+}
+
+.dropdown-menu a {
+    display: block;
+    padding: 15px 25px;
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    border-bottom: 1px solid rgba(253, 221, 88, 0.1);
+}
+
+.dropdown-menu a:last-child {
+    border-bottom: none;
+}
+
+.dropdown-menu a:hover {
+    background-color: #FDDD58;
+    color: #1a1a1a;
+    padding-left: 30px;
+}
+
 /* Menú Hamburguesa */
 .hamburger {
   display: none;
@@ -687,6 +734,44 @@ body.menu-open {
     text-align: center;
     padding: 25px 20px;
   }
+
+  .services-dropdown {
+    position: static;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.dropdown-menu {
+    position: static;
+    transform: none;
+    opacity: 1;
+    visibility: visible;
+    margin: 0;
+    padding: 0;
+    background-color: transparent;
+    box-shadow: none;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    width: 100%;
+}
+
+.services-dropdown.active .dropdown-menu {
+    max-height: 200px;
+}
+
+.dropdown-menu a {
+    padding: 12px 40px;
+    font-size: 16px;
+    border-bottom: 1px solid rgba(253, 221, 88, 0.2);
+    text-align: center;
+}
+
+.dropdown-menu a:hover {
+    padding-left: 40px;
+}
 }
 
 /* Mobile pequeño (hasta 480px) */

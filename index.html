@@ -1562,6 +1562,7 @@ body.menu-open {
     </footer>
 
    <script>
+
     // Menú Hamburguesa
     document.addEventListener('DOMContentLoaded', function() {
         const nav = document.querySelector('nav');
@@ -1586,8 +1587,31 @@ body.menu-open {
             document.body.classList.toggle('menu-open');
         });
         
-        // Cerrar menú al hacer click en un link
-        const navLinks = nav.querySelectorAll('a, .cta-button');
+        // Funcionalidad del dropdown en mobile
+        const servicesDropdown = document.querySelector('.services-dropdown');
+        const servicesLink = servicesDropdown.querySelector('.services-link');
+        const dropdownLinks = servicesDropdown.querySelectorAll('.dropdown-menu a');
+        
+        servicesLink.addEventListener('click', function(e) {
+            // En mobile, prevenir navegación y toggle dropdown
+            if (window.innerWidth <= 767) {
+                e.preventDefault();
+                servicesDropdown.classList.toggle('active');
+            }
+        });
+        
+        // Cerrar menú al hacer click en links del dropdown
+        dropdownLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                hamburger.classList.remove('active');
+                nav.classList.remove('active');
+                document.body.classList.remove('menu-open');
+                servicesDropdown.classList.remove('active');
+            });
+        });
+        
+        // Cerrar menú al hacer click en otros links (excepto services)
+        const navLinks = nav.querySelectorAll('a:not(.services-link), .cta-button');
         navLinks.forEach(link => {
             link.addEventListener('click', function() {
                 hamburger.classList.remove('active');
@@ -1595,17 +1619,17 @@ body.menu-open {
                 document.body.classList.remove('menu-open');
             });
         });
+        
+        // Manejar resize de ventana
+        window.addEventListener('resize', function() {
+            if (window.innerWidth > 767) {
+                servicesDropdown.classList.remove('active');
+            }
+        });
     });
 
-    if (window.innerWidth <= 767) {
-    const servicesDropdown = document.querySelector('.services-dropdown');
-    const servicesLink = servicesDropdown.querySelector('.services-link');
     
-    servicesLink.addEventListener('click', function(e) {
-        e.preventDefault();
-        servicesDropdown.classList.toggle('active');
-    });
-}
-</script>
+
+  </script>
 </body>
 </html>
