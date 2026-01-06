@@ -75,6 +75,83 @@
             content: ' ▾';
         }
 
+        /* Dropdown Menu */
+.services-dropdown {
+    position: relative;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #2a2a2a;
+    min-width: 220px;
+    border-radius: 8px;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    margin-top: 10px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+    overflow: hidden;
+}
+
+.services-dropdown:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    margin-top: 15px;
+}
+
+.dropdown-menu a {
+    display: block;
+    padding: 15px 25px;
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    border-bottom: 1px solid rgba(253, 221, 88, 0.1);
+}
+
+.dropdown-menu a:last-child {
+    border-bottom: none;
+}
+
+.dropdown-menu a:hover {
+    background-color: #FDDD58;
+    color: #1a1a1a;
+    padding-left: 30px;
+}
+
+/* Para mobile */
+@media (max-width: 767px) {
+    .dropdown-menu {
+        position: static;
+        transform: none;
+        opacity: 1;
+        visibility: visible;
+        margin-top: 0;
+        background-color: transparent;
+        box-shadow: none;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+    }
+
+    .services-dropdown.active .dropdown-menu {
+        max-height: 200px;
+    }
+
+    .dropdown-menu a {
+        padding: 12px 40px;
+        font-size: 16px;
+        border-bottom: 1px solid rgba(253, 221, 88, 0.2);
+    }
+
+    .dropdown-menu a:hover {
+        padding-left: 45px;
+    }
+}
+
         .cta-button {
             background-color: #FDDD58;
             color: #1a1a1a;
@@ -304,9 +381,9 @@
     padding: 30px;
     background: linear-gradient(
         180deg,
-        rgba(0,0,0,0.55) 0%,
+        rgba(0,0,0,0.30) 0%,
         rgba(0,0,0,0.25) 45%,
-        rgba(0,0,0,0.75) 100%
+        rgba(0,0,0,0.35) 100%
     );
 }
 
@@ -491,7 +568,9 @@
         /* About Section */
         .about-section {
             background-color: #f5f5f5;
-            padding: 0;
+            /*padding: 0;
+            padding-top: 65px;*/
+            padding: 80px 60px;
         }
 
         .about-content {
@@ -572,8 +651,11 @@
 
         .about-image {
             flex: 1;
-            background-color: #c5b8a8;
-            min-height: 500px;
+            /*background-color: #c5b8a8;*/
+            background-image: url('imagenes/chat-gpt-about.png');
+            background-size: cover;
+            max-height: 600px;
+            border-radius: 8px;
         }
 
         /* Portfolio Section */
@@ -630,10 +712,36 @@
             margin: 0 auto;
         }
 
-        .portfolio-item {
-            background-color: #a8b5a3;
+        .portfolio-item-1, .portfolio-item-2, .portfolio-item-3, .portfolio-item-4, .portfolio-item-5, .portfolio-item-6 {
+            /*background-color: #a8b5a3;*/
             height: 280px;
             border-radius: 8px;
+            background-size: cover;
+            background-position: center ;
+        }
+
+        .portfolio-item-1{
+         background-image: url("imagenes/recent-work-1.jpg");
+        }
+
+        .portfolio-item-2{
+         background-image: url("imagenes/recent-work-2.jpg");
+        }
+
+        .portfolio-item-3{
+         background-image: url("imagenes/recent-work-3.jpg");
+        }
+
+        .portfolio-item-4{
+         background-image: url("imagenes/recent-work-4.jpg");
+        }
+
+        .portfolio-item-5{
+         background-image: url("imagenes/recent-work-5.jpg");
+        }
+
+        .portfolio-item-6{
+         background-image: url("imagenes/recent-work-6.jpg");
         }
 
         /* Footer */
@@ -772,6 +880,428 @@
             font-size: 13px;
             cursor: pointer;
         }
+
+        /* ============================================
+   MEDIA QUERIES - RESPONSIVE DESIGN
+   ============================================ */
+
+/* Prevenir overflow horizontal en todos los tamaños */
+* {
+    max-width: 100%;
+}
+
+html, body {
+    overflow-x: hidden;
+    width: 100%;
+}
+
+/* Estilos del menú hamburguesa (oculto por defecto) */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    z-index: 1000;
+    gap: 5px;
+}
+
+.hamburger span {
+    width: 28px;
+    height: 3px;
+    background-color: #FDDD58;
+    transition: all 0.3s ease;
+    border-radius: 3px;
+}
+
+.hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(6px, -6px);
+}
+
+/* Prevenir scroll cuando el menú está abierto */
+body.menu-open {
+    overflow: hidden;
+}
+
+/* Tablets (768px - 1024px) */
+@media (max-width: 1024px) {
+    header {
+        padding: 20px 40px;
+    }
+
+    .hero {
+        padding: 60px 40px;
+        flex-direction: column;
+        gap: 40px;
+    }
+
+    .hero-content {
+        max-width: 100%;
+        text-align: center;
+    }
+
+    .hero h1 {
+        font-size: 42px;
+    }
+
+    .hero-buttons {
+        justify-content: center;
+    }
+
+    .quote-form {
+        width: 100%;
+        max-width: 450px;
+    }
+
+    .services-grid,
+    .testimonials-grid,
+    .portfolio-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .about-content {
+        flex-direction: column;
+    }
+
+    .about-text {
+        padding: 60px 40px;
+    }
+
+    .about-image {
+        min-height: 400px;
+        width: 100%;
+    }
+
+    .footer-content {
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+    }
+
+    .footer-column:last-child {
+        grid-column: 1 / -1;
+        max-width: 400px;
+        margin: 0 auto;
+    }
+}
+
+/* Mobile (hasta 767px) */
+@media (max-width: 767px) {
+    /* Header y Menú Hamburguesa */
+    header {
+        padding: 15px 20px;
+        flex-wrap: wrap;
+    }
+
+    .logo {
+        flex: 1;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    nav {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background-color: rgba(26, 26, 26, 0.98);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 30px;
+        z-index: 999;
+        padding: 20px;
+    }
+
+    nav.active {
+        display: flex;
+    }
+
+    nav a {
+        font-size: 20px;
+        color: white;
+    }
+
+    nav .cta-button {
+        margin-top: 20px;
+        padding: 15px 30px;
+    }
+
+    /* Hero Section */
+    .hero {
+        padding: 40px 20px;
+        min-height: auto;
+    }
+
+    .hero h1 {
+        font-size: 32px;
+        text-align: center;
+    }
+
+    .hero-description {
+        font-size: 14px;
+        text-align: center;
+    }
+
+    .hero-description br {
+        display: none;
+    }
+
+    .rating {
+        justify-content: center;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .primary-button,
+    .secondary-button {
+        width: 100%;
+        padding: 15px 20px;
+    }
+
+    .quote-form {
+        width: 100%;
+        padding: 25px 20px;
+        margin: 0;
+    }
+
+    .form-header h2 {
+        font-size: 20px;
+    }
+
+    /* About Section */
+    .about-section {
+        padding: 60px 20px;
+    }
+
+    .about-content {
+        width: 100%;
+    }
+
+    .about-text {
+        padding: 40px 20px;
+        width: 100%;
+    }
+
+    .about-text h2 {
+        font-size: 28px;
+    }
+
+    .about-text h3 {
+        font-size: 22px;
+    }
+
+    .about-description {
+        font-size: 14px;
+    }
+
+    .about-image {
+        min-height: 300px;
+        width: 100%;
+    }
+
+    .locally-owned {
+        flex-direction: column;
+        align-items: flex-start;
+        text-align: left;
+    }
+
+    /* Services Section */
+    .services-section {
+        padding: 60px 20px;
+    }
+
+    .services-section h2 {
+        font-size: 28px;
+    }
+
+    .services-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        width: 100%;
+    }
+
+    .service-card-new {
+        height: 300px;
+        width: 100%;
+    }
+
+    /* Testimonials Section */
+    .testimonials-section {
+        padding: 60px 20px;
+    }
+
+    .testimonials-section h2 {
+        font-size: 28px;
+    }
+
+    .testimonials-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        width: 100%;
+    }
+
+    .testimonial-card {
+        padding: 25px 20px;
+        width: 100%;
+    }
+
+    /* Portfolio Section */
+    .portfolio-section {
+        padding: 60px 20px;
+    }
+
+    .portfolio-section h2 {
+        font-size: 28px;
+    }
+
+    .portfolio-filters {
+        flex-wrap: wrap;
+        gap: 10px;
+        padding: 0 10px;
+    }
+
+    .filter-btn {
+        padding: 10px 20px;
+        font-size: 13px;
+    }
+
+    .portfolio-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        width: 100%;
+    }
+
+    .portfolio-item-1, 
+    .portfolio-item-2, 
+    .portfolio-item-3, 
+    .portfolio-item-4, 
+    .portfolio-item-5, 
+    .portfolio-item-6 {
+        height: 250px;
+        width: 100%;
+    }
+
+    /* Final CTA */
+    .final-cta {
+        padding: 60px 20px;
+        flex-direction: column;
+        text-align: center;
+        gap: 30px;
+    }
+
+    .final-cta-content h2 {
+        font-size: 26px;
+    }
+
+    .final-cta-content p {
+        font-size: 16px;
+    }
+
+    .final-cta-button {
+        width: 100%;
+        max-width: 300px;
+    }
+
+    /* Footer */
+    .footer {
+        padding: 40px 20px 0;
+    }
+
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        width: 100%;
+    }
+
+    .footer-column {
+        width: 100%;
+    }
+
+    .footer-column h3 {
+        font-size: 18px;
+    }
+
+    .footer-logo {
+        flex-direction: row;
+        align-items: flex-start;
+        text-align: left;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+
+    .footer-bottom-links {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .footer-cta {
+        flex-direction: column;
+        gap: 20px;
+        font-size: 16px;
+        text-align: center;
+        padding: 25px 20px;
+    }
+}
+
+/* Mobile pequeño (hasta 480px) */
+@media (max-width: 480px) {
+    .hero h1 {
+        font-size: 28px;
+    }
+
+    .services-section h2,
+    .testimonials-section h2,
+    .portfolio-section h2 {
+        font-size: 24px;
+    }
+
+    .about-text h2 {
+        font-size: 24px;
+    }
+
+    .about-text h3 {
+        font-size: 20px;
+    }
+
+    .service-card-new {
+        height: 280px;
+    }
+
+    .service-overlay h3 {
+        font-size: 22px;
+    }
+
+    .final-cta-content h2 {
+        font-size: 22px;
+    }
+
+    .logo-text {
+        font-size: 16px;
+    }
+
+    .logo-icon {
+        width: 35px;
+        height: 35px;
+        font-size: 18px;
+    }
+}
     </style>
 </head>
 <body>
@@ -782,11 +1312,18 @@
         </div>
         <nav>
             <a href="#home">Home</a>
-            <a href="#services" class="services-link">Services</a>
-            <a href="#about">About</a>
-            <a href="#reviews">Reviews</a>
-            <a href="#contact">Contact</a>
-            <span class="cta-button">GET FREE QUOTE</span>
+<div class="services-dropdown">
+    <a href="#services" class="services-link">Services</a>
+    <div class="dropdown-menu">
+        <a href="moving_services_updated.html">Moving</a>
+        <a href="pickup.html">Pick Up and Delivery</a>
+        <a href="junkremoval.html">Junk Removal</a>
+    </div>
+</div>
+<a href="#about">About</a>
+<a href="#reviews">Reviews</a>
+<a href="#contact">Contact</a>
+<span class="cta-button">GET FREE QUOTE</span>
         </nav>
     </header>
 
@@ -868,27 +1405,27 @@
         <p class="services-subtitle">Comprehensive moving solutions tailored to meet your needs anywhere in Florida.</p>
     
         <div class="services-grid">
-            <a href="#service-24-7" class="service-card-new">
+            <a href="moving_services_updated.html" class="service-card-new">
                 <div class="service-bg"
-                    style="background-image: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c');">
+                    style="background-image: url('imagenes/Moving.jpg');">
                     <div class="service-overlay">
                         <h3>Moving</h3>
-                        <span class="arrow">→</span>
+                       <span class="arrow">→</span>
                     </div>
                 </div>
             </a>
-            <a href="#service-24-7" class="service-card-new">
+            <a href="junkremoval.html" class="service-card-new">
                 <div class="service-bg"
-                    style="background-image: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c');">
+                    style="background-image: url('imagenes/junk-removal.jpg');">
                     <div class="service-overlay">
                         <h3>Junk Removal</h3>
                         <span class="arrow">→</span>
                     </div>
                 </div>
             </a>
-            <a href="#service-24-7" class="service-card-new">
+            <a href="pickup.html" class="service-card-new">
                 <div class="service-bg"
-                    style="background-image: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c');">
+                    style="background-image: url('imagenes/pickup-delivery.jpg');">
                     <div class="service-overlay">
                         <h3>Pickup and Delivery</h3>
                         <span class="arrow">→</span>
@@ -965,12 +1502,12 @@
         </div>
 
         <div class="portfolio-grid">
-            <div class="portfolio-item"></div>
-            <div class="portfolio-item"></div>
-            <div class="portfolio-item"></div>
-            <div class="portfolio-item"></div>
-            <div class="portfolio-item"></div>
-            <div class="portfolio-item"></div>
+            <div class="portfolio-item-1"></div>
+            <div class="portfolio-item-2"></div>
+            <div class="portfolio-item-3"></div>
+            <div class="portfolio-item-4"></div>
+            <div class="portfolio-item-5"></div>
+            <div class="portfolio-item-6"></div>
         </div>
     </section>
 
@@ -1023,5 +1560,52 @@
             <button class="footer-cta-btn">GET FREE QUOTE</button>
         </div>
     </footer>
+
+   <script>
+    // Menú Hamburguesa
+    document.addEventListener('DOMContentLoaded', function() {
+        const nav = document.querySelector('nav');
+        const header = document.querySelector('header');
+        
+        // Crear botón hamburguesa
+        const hamburger = document.createElement('div');
+        hamburger.className = 'hamburger';
+        hamburger.innerHTML = `
+            <span></span>
+            <span></span>
+            <span></span>
+        `;
+        
+        // Insertar hamburguesa después del logo
+        header.insertBefore(hamburger, nav);
+        
+        // Toggle menú
+        hamburger.addEventListener('click', function() {
+            hamburger.classList.toggle('active');
+            nav.classList.toggle('active');
+            document.body.classList.toggle('menu-open');
+        });
+        
+        // Cerrar menú al hacer click en un link
+        const navLinks = nav.querySelectorAll('a, .cta-button');
+        navLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                hamburger.classList.remove('active');
+                nav.classList.remove('active');
+                document.body.classList.remove('menu-open');
+            });
+        });
+    });
+
+    if (window.innerWidth <= 767) {
+    const servicesDropdown = document.querySelector('.services-dropdown');
+    const servicesLink = servicesDropdown.querySelector('.services-link');
+    
+    servicesLink.addEventListener('click', function(e) {
+        e.preventDefault();
+        servicesDropdown.classList.toggle('active');
+    });
+}
+</script>
 </body>
 </html>
