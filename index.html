@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Moving Company - Florida's Top Moving Services</title>
+    <script src="https://kit.fontawesome.com/d08ed07a68.js" crossorigin="anonymous"></script>
     <style>
         * {
             margin: 0;
@@ -18,13 +20,22 @@
 
         /* Header */
         header {
-            background-color: #1a1a1a;
-            padding: 20px 60px;
+            background-color: transparent;
+            position: fixed;
+            /* se superpone */
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 10px 60px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            position: relative;
             z-index: 10;
+        }
+
+        header.scrolled {
+            background-color: rgba(255, 255, 255, 0.65);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
         }
 
         .logo {
@@ -33,7 +44,7 @@
             gap: 10px;
         }
 
-        .logo-icon {
+        /*.logo-icon {
             width: 40px;
             height: 40px;
             background-color: transparent;
@@ -52,6 +63,11 @@
             font-weight: bold;
             text-transform: uppercase;
             letter-spacing: 1px;
+        }*/
+
+        .logo-imagen {
+            width: 100px;
+            height: auto;
         }
 
         nav {
@@ -61,7 +77,7 @@
         }
 
         nav a {
-            color: white;
+            color: #2a2a2a;
             text-decoration: none;
             font-size: 14px;
             transition: color 0.3s;
@@ -76,81 +92,81 @@
         }
 
         /* Dropdown Menu */
-.services-dropdown {
-    position: relative;
-}
+        .services-dropdown {
+            position: relative;
+        }
 
-.dropdown-menu {
-    position: absolute;
-    top: 100%;
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: #2a2a2a;
-    min-width: 220px;
-    border-radius: 8px;
-    opacity: 0;
-    visibility: hidden;
-    transition: all 0.3s ease;
-    margin-top: 10px;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
-    overflow: hidden;
-}
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #2a2a2a;
+            min-width: 220px;
+            border-radius: 8px;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            margin-top: 10px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+            overflow: hidden;
+        }
 
-.services-dropdown:hover .dropdown-menu {
-    opacity: 1;
-    visibility: visible;
-    margin-top: 15px;
-}
+        .services-dropdown:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            margin-top: 15px;
+        }
 
-.dropdown-menu a {
-    display: block;
-    padding: 15px 25px;
-    color: white;
-    text-decoration: none;
-    font-size: 14px;
-    transition: all 0.3s ease;
-    border-bottom: 1px solid rgba(253, 221, 88, 0.1);
-}
+        .dropdown-menu a {
+            display: block;
+            padding: 15px 25px;
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            border-bottom: 1px solid rgba(253, 221, 88, 0.1);
+        }
 
-.dropdown-menu a:last-child {
-    border-bottom: none;
-}
+        .dropdown-menu a:last-child {
+            border-bottom: none;
+        }
 
-.dropdown-menu a:hover {
-    background-color: #FDDD58;
-    color: #1a1a1a;
-    padding-left: 30px;
-}
+        .dropdown-menu a:hover {
+            background-color: #FDDD58;
+            color: #1a1a1a;
+            padding-left: 30px;
+        }
 
-/* Para mobile */
-@media (max-width: 767px) {
-    .dropdown-menu {
-        position: static;
-        transform: none;
-        opacity: 1;
-        visibility: visible;
-        margin-top: 0;
-        background-color: transparent;
-        box-shadow: none;
-        max-height: 0;
-        overflow: hidden;
-        transition: max-height 0.3s ease;
-    }
+        /* Para mobile */
+        @media (max-width: 767px) {
+            .dropdown-menu {
+                position: static;
+                transform: none;
+                opacity: 1;
+                visibility: visible;
+                margin-top: 0;
+                background-color: transparent;
+                box-shadow: none;
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.3s ease;
+            }
 
-    .services-dropdown.active .dropdown-menu {
-        max-height: 200px;
-    }
+            .services-dropdown.active .dropdown-menu {
+                max-height: 200px;
+            }
 
-    .dropdown-menu a {
-        padding: 12px 40px;
-        font-size: 16px;
-        border-bottom: 1px solid rgba(253, 221, 88, 0.2);
-    }
+            .dropdown-menu a {
+                padding: 12px 40px;
+                font-size: 16px;
+                border-bottom: 1px solid rgba(253, 221, 88, 0.2);
+            }
 
-    .dropdown-menu a:hover {
-        padding-left: 45px;
-    }
-}
+            .dropdown-menu a:hover {
+                padding-left: 45px;
+            }
+        }
 
         .cta-button {
             background-color: #FDDD58;
@@ -168,7 +184,8 @@
             background-image: url("imagenes/primer-plano-de-un-hombre-que-lleva-cajas-de-carton-mientras-se-traslada-un-nuevo-apartamento.jpg");
             background-size: cover;
             background-position: center;
-            padding: 80px 60px;
+            padding: 160px 60px 80px;
+            /* más espacio arriba */
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -246,6 +263,7 @@
             font-size: 13px;
             cursor: pointer;
             transition: all 0.3s;
+            text-decoration: none;
         }
 
         .secondary-button:hover {
@@ -352,83 +370,81 @@
         }
 
         .service-card-new {
-    display: block;
-    text-decoration: none;
-    border-radius: 16px;
-    overflow: hidden;
-    position: relative;
-    height: 360px;
-    transition: transform 0.3s ease;
-}
+            display: block;
+            text-decoration: none;
+            border-radius: 16px;
+            overflow: hidden;
+            position: relative;
+            height: 360px;
+            transition: transform 0.3s ease;
+        }
 
-.service-card-new:hover {
-    transform: translateY(-6px);
-}
+        .service-card-new:hover {
+            transform: translateY(-6px);
+        }
 
-/* Background image */
-.service-bg {
-    width: 100%;
-    height: 100%;
-    background-size: cover;
-    background-position: center;
-    position: relative;
-}
+        /* Background image */
+        .service-bg {
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
 
-/* Overlay */
-.service-overlay {
-    position: absolute;
-    inset: 0;
-    padding: 30px;
-    background: linear-gradient(
-        180deg,
-        rgba(0,0,0,0.30) 0%,
-        rgba(0,0,0,0.25) 45%,
-        rgba(0,0,0,0.35) 100%
-    );
-}
+        /* Overlay */
+        .service-overlay {
+            position: absolute;
+            inset: 0;
+            padding: 30px;
+            background: linear-gradient(180deg,
+                    rgba(0, 0, 0, 0.30) 0%,
+                    rgba(0, 0, 0, 0.25) 45%,
+                    rgba(0, 0, 0, 0.35) 100%);
+        }
 
-/* Title bottom-left */
-.service-overlay h3 {
-    position: absolute;
-    bottom: 30px;
-    left: 30px;
-    color: #ffffff;
-    font-size: 26px;
-    font-weight: bold;
-    line-height: 1.2;
-    max-width: 80%;
-}
+        /* Title bottom-left */
+        .service-overlay h3 {
+            position: absolute;
+            bottom: 30px;
+            left: 30px;
+            color: #ffffff;
+            font-size: 26px;
+            font-weight: bold;
+            line-height: 1.2;
+            max-width: 80%;
+        }
 
-/* Arrow top-right */
-.service-overlay .arrow {
-    position: absolute;
-    top: 24px;
-    right: 24px;
+        /* Arrow top-right */
+        .service-overlay .arrow {
+            position: absolute;
+            top: 24px;
+            right: 24px;
 
-    width: 42px;
-    height: 42px;
-    border-radius: 50%;
-    background-color: rgba(255,255,255,0.9);
-    color: #1a1a1a;
-    font-size: 22px;
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #1a1a1a;
+            font-size: 22px;
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
 
-    transition: transform 0.3s ease, opacity 0.3s ease;
-}
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
 
-/* Hover arrow animation */
-.service-card-new:hover .arrow {
-    transform: translateX(6px);
-}
+        /* Hover arrow animation */
+        .service-card-new:hover .arrow {
+            transform: translateX(6px);
+        }
 
-/* Optional: subtle zoom image on hover */
-.service-card-new:hover .service-bg {
-    transform: scale(1.05);
-    transition: transform 0.4s ease;
-}
+        /* Optional: subtle zoom image on hover */
+        .service-card-new:hover .service-bg {
+            transform: scale(1.05);
+            transition: transform 0.4s ease;
+        }
 
         .get-quote-button {
             background-color: #FDDD58;
@@ -524,7 +540,7 @@
 
         /* Final CTA Section */
         .final-cta {
-            background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="400"><rect fill="%23333333" width="1200" height="400"/></svg>');
+            background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="400"><rect fill="%23333333" width="1200" height="400"/></svg>');
             background-size: cover;
             background-position: center;
             padding: 80px 60px;
@@ -712,42 +728,47 @@
             margin: 0 auto;
         }
 
-        .portfolio-item-1, .portfolio-item-2, .portfolio-item-3, .portfolio-item-4, .portfolio-item-5, .portfolio-item-6 {
+        .portfolio-item-1,
+        .portfolio-item-2,
+        .portfolio-item-3,
+        .portfolio-item-4,
+        .portfolio-item-5,
+        .portfolio-item-6 {
             /*background-color: #a8b5a3;*/
             height: 280px;
             border-radius: 8px;
             background-size: cover;
-            background-position: center ;
+            background-position: center;
         }
 
-        .portfolio-item-1{
-         background-image: url("imagenes/recent-work-1.jpg");
+        .portfolio-item-1 {
+            background-image: url("imagenes/recent-work-1.jpg");
         }
 
-        .portfolio-item-2{
-         background-image: url("imagenes/recent-work-2.jpg");
+        .portfolio-item-2 {
+            background-image: url("imagenes/recent-work-2.jpg");
         }
 
-        .portfolio-item-3{
-         background-image: url("imagenes/recent-work-3.jpg");
+        .portfolio-item-3 {
+            background-image: url("imagenes/recent-work-3.jpg");
         }
 
-        .portfolio-item-4{
-         background-image: url("imagenes/recent-work-4.jpg");
+        .portfolio-item-4 {
+            background-image: url("imagenes/recent-work-4.jpg");
         }
 
-        .portfolio-item-5{
-         background-image: url("imagenes/recent-work-5.jpg");
+        .portfolio-item-5 {
+            background-image: url("imagenes/recent-work-5.jpg");
         }
 
-        .portfolio-item-6{
-         background-image: url("imagenes/recent-work-6.jpg");
+        .portfolio-item-6 {
+            background-image: url("imagenes/recent-work-6.jpg");
         }
 
         /* Footer */
         .footer {
-            background-color: #1a1a1a;
-            color: white;
+            background-color: #ccc;
+            color: #333333;
             padding: 60px 60px 0;
         }
 
@@ -760,7 +781,7 @@
         }
 
         .footer-column h3 {
-            color: #FDDD58;
+            color: #333333;
             font-size: 20px;
             margin-bottom: 25px;
             text-transform: uppercase;
@@ -770,6 +791,11 @@
             display: flex;
             gap: 15px;
             margin-bottom: 25px;
+        }
+
+        .logo-footer {
+            width: 100px;
+            height: auto;
         }
 
         .footer-logo-icon {
@@ -799,7 +825,7 @@
         .footer-logo-text p {
             font-size: 13px;
             line-height: 1.6;
-            color: #ccc;
+            color: #333333;
         }
 
         .footer-contact {
@@ -811,6 +837,16 @@
             list-style: none;
             font-size: 14px;
             line-height: 2.5;
+        }
+
+        .list-link {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .circle-icon {
+            font-size: 5px;
         }
 
         .quote-box {
@@ -885,445 +921,447 @@
    MEDIA QUERIES - RESPONSIVE DESIGN
    ============================================ */
 
-/* Prevenir overflow horizontal en todos los tamaños */
-* {
-    max-width: 100%;
-}
-
-html, body {
-    overflow-x: hidden;
-    width: 100%;
-}
-
-/* Estilos del menú hamburguesa (oculto por defecto) */
-.hamburger {
-    display: none;
-    flex-direction: column;
-    cursor: pointer;
-    z-index: 1000;
-    gap: 5px;
-}
-
-.hamburger span {
-    width: 28px;
-    height: 3px;
-    background-color: #FDDD58;
-    transition: all 0.3s ease;
-    border-radius: 3px;
-}
-
-.hamburger.active span:nth-child(1) {
-    transform: rotate(45deg) translate(5px, 5px);
-}
-
-.hamburger.active span:nth-child(2) {
-    opacity: 0;
-}
-
-.hamburger.active span:nth-child(3) {
-    transform: rotate(-45deg) translate(6px, -6px);
-}
-
-/* Prevenir scroll cuando el menú está abierto */
-body.menu-open {
-    overflow: hidden;
-}
-
-/* Tablets (768px - 1024px) */
-@media (max-width: 1024px) {
-    header {
-        padding: 20px 40px;
-    }
-
-    .hero {
-        padding: 60px 40px;
-        flex-direction: column;
-        gap: 40px;
-    }
-
-    .hero-content {
-        max-width: 100%;
-        text-align: center;
-    }
-
-    .hero h1 {
-        font-size: 42px;
-    }
-
-    .hero-buttons {
-        justify-content: center;
-    }
-
-    .quote-form {
-        width: 100%;
-        max-width: 450px;
-    }
-
-    .services-grid,
-    .testimonials-grid,
-    .portfolio-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .about-content {
-        flex-direction: column;
-    }
-
-    .about-text {
-        padding: 60px 40px;
-    }
-
-    .about-image {
-        min-height: 400px;
-        width: 100%;
-    }
-
-    .footer-content {
-        grid-template-columns: 1fr 1fr;
-        gap: 40px;
-    }
-
-    .footer-column:last-child {
-        grid-column: 1 / -1;
-        max-width: 400px;
-        margin: 0 auto;
-    }
-}
-
-/* Mobile (hasta 767px) */
-@media (max-width: 767px) {
-    /* Header y Menú Hamburguesa */
-    header {
-        padding: 15px 20px;
-        flex-wrap: wrap;
-    }
-
-    .logo {
-        flex: 1;
-    }
-
-    .hamburger {
-        display: flex;
-    }
-
-    nav {
-        display: none;
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100vh;
-        background-color: rgba(26, 26, 26, 0.98);
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        gap: 30px;
-        z-index: 999;
-        padding: 20px;
-    }
-
-    nav.active {
-        display: flex;
-    }
-
-    nav a {
-        font-size: 20px;
-        color: white;
-    }
-
-    nav .cta-button {
-        margin-top: 20px;
-        padding: 15px 30px;
-    }
-
-    /* Hero Section */
-    .hero {
-        padding: 40px 20px;
-        min-height: auto;
-    }
-
-    .hero h1 {
-        font-size: 32px;
-        text-align: center;
-    }
-
-    .hero-description {
-        font-size: 14px;
-        text-align: center;
-    }
-
-    .hero-description br {
-        display: none;
-    }
-
-    .rating {
-        justify-content: center;
-    }
-
-    .hero-buttons {
-        flex-direction: column;
-        width: 100%;
-    }
-
-    .primary-button,
-    .secondary-button {
-        width: 100%;
-        padding: 15px 20px;
-    }
-
-    .quote-form {
-        width: 100%;
-        padding: 25px 20px;
-        margin: 0;
-    }
-
-    .form-header h2 {
-        font-size: 20px;
-    }
-
-    /* About Section */
-    .about-section {
-        padding: 60px 20px;
-    }
-
-    .about-content {
-        width: 100%;
-    }
-
-    .about-text {
-        padding: 40px 20px;
-        width: 100%;
-    }
-
-    .about-text h2 {
-        font-size: 28px;
-    }
-
-    .about-text h3 {
-        font-size: 22px;
-    }
-
-    .about-description {
-        font-size: 14px;
-    }
-
-    .about-image {
-        min-height: 300px;
-        width: 100%;
-    }
-
-    .locally-owned {
-        flex-direction: column;
-        align-items: flex-start;
-        text-align: left;
-    }
-
-    /* Services Section */
-    .services-section {
-        padding: 60px 20px;
-    }
-
-    .services-section h2 {
-        font-size: 28px;
-    }
-
-    .services-grid {
-        grid-template-columns: 1fr;
-        gap: 20px;
-        width: 100%;
-    }
-
-    .service-card-new {
-        height: 300px;
-        width: 100%;
-    }
-
-    /* Testimonials Section */
-    .testimonials-section {
-        padding: 60px 20px;
-    }
-
-    .testimonials-section h2 {
-        font-size: 28px;
-    }
-
-    .testimonials-grid {
-        grid-template-columns: 1fr;
-        gap: 20px;
-        width: 100%;
-    }
-
-    .testimonial-card {
-        padding: 25px 20px;
-        width: 100%;
-    }
-
-    /* Portfolio Section */
-    .portfolio-section {
-        padding: 60px 20px;
-    }
-
-    .portfolio-section h2 {
-        font-size: 28px;
-    }
-
-    .portfolio-filters {
-        flex-wrap: wrap;
-        gap: 10px;
-        padding: 0 10px;
-    }
-
-    .filter-btn {
-        padding: 10px 20px;
-        font-size: 13px;
-    }
-
-    .portfolio-grid {
-        grid-template-columns: 1fr;
-        gap: 20px;
-        width: 100%;
-    }
-
-    .portfolio-item-1, 
-    .portfolio-item-2, 
-    .portfolio-item-3, 
-    .portfolio-item-4, 
-    .portfolio-item-5, 
-    .portfolio-item-6 {
-        height: 250px;
-        width: 100%;
-    }
-
-    /* Final CTA */
-    .final-cta {
-        padding: 60px 20px;
-        flex-direction: column;
-        text-align: center;
-        gap: 30px;
-    }
-
-    .final-cta-content h2 {
-        font-size: 26px;
-    }
-
-    .final-cta-content p {
-        font-size: 16px;
-    }
-
-    .final-cta-button {
-        width: 100%;
-        max-width: 300px;
-    }
-
-    /* Footer */
-    .footer {
-        padding: 40px 20px 0;
-    }
-
-    .footer-content {
-        grid-template-columns: 1fr;
-        gap: 40px;
-        width: 100%;
-    }
-
-    .footer-column {
-        width: 100%;
-    }
-
-    .footer-column h3 {
-        font-size: 18px;
-    }
-
-    .footer-logo {
-        flex-direction: row;
-        align-items: flex-start;
-        text-align: left;
-    }
-
-    .footer-bottom {
-        flex-direction: column;
-        gap: 15px;
-        text-align: center;
-    }
-
-    .footer-bottom-links {
-        flex-direction: column;
-        gap: 10px;
-    }
-
-    .footer-cta {
-        flex-direction: column;
-        gap: 20px;
-        font-size: 16px;
-        text-align: center;
-        padding: 25px 20px;
-    }
-}
-
-/* Mobile pequeño (hasta 480px) */
-@media (max-width: 480px) {
-    .hero h1 {
-        font-size: 28px;
-    }
-
-    .services-section h2,
-    .testimonials-section h2,
-    .portfolio-section h2 {
-        font-size: 24px;
-    }
-
-    .about-text h2 {
-        font-size: 24px;
-    }
-
-    .about-text h3 {
-        font-size: 20px;
-    }
-
-    .service-card-new {
-        height: 280px;
-    }
-
-    .service-overlay h3 {
-        font-size: 22px;
-    }
-
-    .final-cta-content h2 {
-        font-size: 22px;
-    }
-
-    .logo-text {
-        font-size: 16px;
-    }
-
-    .logo-icon {
-        width: 35px;
-        height: 35px;
-        font-size: 18px;
-    }
-}
+        /* Prevenir overflow horizontal en todos los tamaños */
+        * {
+            max-width: 100%;
+        }
+
+        html,
+        body {
+            overflow-x: hidden;
+            width: 100%;
+        }
+
+        /* Estilos del menú hamburguesa (oculto por defecto) */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            z-index: 1000;
+            gap: 5px;
+        }
+
+        .hamburger span {
+            width: 28px;
+            height: 3px;
+            background-color: #FDDD58;
+            transition: all 0.3s ease;
+            border-radius: 3px;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(6px, -6px);
+        }
+
+        /* Prevenir scroll cuando el menú está abierto */
+        body.menu-open {
+            overflow: hidden;
+        }
+
+        /* Tablets (768px - 1024px) */
+        @media (max-width: 1024px) {
+            header {
+                padding: 20px 40px;
+            }
+
+            .hero {
+                padding: 60px 40px;
+                flex-direction: column;
+                gap: 40px;
+            }
+
+            .hero-content {
+                max-width: 100%;
+                text-align: center;
+            }
+
+            .hero h1 {
+                font-size: 42px;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .quote-form {
+                width: 100%;
+                max-width: 450px;
+            }
+
+            .services-grid,
+            .testimonials-grid,
+            .portfolio-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .about-content {
+                flex-direction: column;
+            }
+
+            .about-text {
+                padding: 60px 40px;
+            }
+
+            .about-image {
+                min-height: 400px;
+                width: 100%;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr 1fr;
+                gap: 40px;
+            }
+
+            .footer-column:last-child {
+                grid-column: 1 / -1;
+                max-width: 400px;
+                margin: 0 auto;
+            }
+        }
+
+        /* Mobile (hasta 767px) */
+        @media (max-width: 767px) {
+
+            /* Header y Menú Hamburguesa */
+            header {
+                padding: 15px 20px;
+                flex-wrap: wrap;
+            }
+
+            .logo {
+                flex: 1;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            nav {
+                display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100vh;
+                background-color: rgba(26, 26, 26, 0.98);
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 30px;
+                z-index: 999;
+                padding: 20px;
+            }
+
+            nav.active {
+                display: flex;
+            }
+
+            nav a {
+                font-size: 20px;
+                color: white;
+            }
+
+            nav .cta-button {
+                margin-top: 20px;
+                padding: 15px 30px;
+            }
+
+            /* Hero Section */
+            .hero {
+                padding: 40px 20px;
+                min-height: auto;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+                text-align: center;
+            }
+
+            .hero-description {
+                font-size: 14px;
+                text-align: center;
+            }
+
+            .hero-description br {
+                display: none;
+            }
+
+            .rating {
+                justify-content: center;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .primary-button,
+            .secondary-button {
+                width: 100%;
+                padding: 15px 20px;
+            }
+
+            .quote-form {
+                width: 100%;
+                padding: 25px 20px;
+                margin: 0;
+            }
+
+            .form-header h2 {
+                font-size: 20px;
+            }
+
+            /* About Section */
+            .about-section {
+                padding: 60px 20px;
+            }
+
+            .about-content {
+                width: 100%;
+            }
+
+            .about-text {
+                padding: 40px 20px;
+                width: 100%;
+            }
+
+            .about-text h2 {
+                font-size: 28px;
+            }
+
+            .about-text h3 {
+                font-size: 22px;
+            }
+
+            .about-description {
+                font-size: 14px;
+            }
+
+            .about-image {
+                min-height: 300px;
+                width: 100%;
+            }
+
+            .locally-owned {
+                flex-direction: column;
+                align-items: flex-start;
+                text-align: left;
+            }
+
+            /* Services Section */
+            .services-section {
+                padding: 60px 20px;
+            }
+
+            .services-section h2 {
+                font-size: 28px;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+                width: 100%;
+            }
+
+            .service-card-new {
+                height: 300px;
+                width: 100%;
+            }
+
+            /* Testimonials Section */
+            .testimonials-section {
+                padding: 60px 20px;
+            }
+
+            .testimonials-section h2 {
+                font-size: 28px;
+            }
+
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+                width: 100%;
+            }
+
+            .testimonial-card {
+                padding: 25px 20px;
+                width: 100%;
+            }
+
+            /* Portfolio Section */
+            .portfolio-section {
+                padding: 60px 20px;
+            }
+
+            .portfolio-section h2 {
+                font-size: 28px;
+            }
+
+            .portfolio-filters {
+                flex-wrap: wrap;
+                gap: 10px;
+                padding: 0 10px;
+            }
+
+            .filter-btn {
+                padding: 10px 20px;
+                font-size: 13px;
+            }
+
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+                width: 100%;
+            }
+
+            .portfolio-item-1,
+            .portfolio-item-2,
+            .portfolio-item-3,
+            .portfolio-item-4,
+            .portfolio-item-5,
+            .portfolio-item-6 {
+                height: 250px;
+                width: 100%;
+            }
+
+            /* Final CTA */
+            .final-cta {
+                padding: 60px 20px;
+                flex-direction: column;
+                text-align: center;
+                gap: 30px;
+            }
+
+            .final-cta-content h2 {
+                font-size: 26px;
+            }
+
+            .final-cta-content p {
+                font-size: 16px;
+            }
+
+            .final-cta-button {
+                width: 100%;
+                max-width: 300px;
+            }
+
+            /* Footer */
+            .footer {
+                padding: 40px 20px 0;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+                width: 100%;
+            }
+
+            .footer-column {
+                width: 100%;
+            }
+
+            .footer-column h3 {
+                font-size: 18px;
+            }
+
+            .footer-logo {
+                flex-direction: row;
+                align-items: flex-start;
+                text-align: left;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+
+            .footer-bottom-links {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .footer-cta {
+                flex-direction: column;
+                gap: 20px;
+                font-size: 16px;
+                text-align: center;
+                padding: 25px 20px;
+            }
+        }
+
+        /* Mobile pequeño (hasta 480px) */
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 28px;
+            }
+
+            .services-section h2,
+            .testimonials-section h2,
+            .portfolio-section h2 {
+                font-size: 24px;
+            }
+
+            .about-text h2 {
+                font-size: 24px;
+            }
+
+            .about-text h3 {
+                font-size: 20px;
+            }
+
+            .service-card-new {
+                height: 280px;
+            }
+
+            .service-overlay h3 {
+                font-size: 22px;
+            }
+
+            .final-cta-content h2 {
+                font-size: 22px;
+            }
+
+            .logo-text {
+                font-size: 16px;
+            }
+
+            .logo-icon {
+                width: 35px;
+                height: 35px;
+                font-size: 18px;
+            }
+        }
     </style>
 </head>
+
 <body>
     <header>
         <div class="logo">
-            <div class="logo-icon">★</div>
-            <span class="logo-text">Moving Company</span>
+            <img src="imagenes/logo-smile-service.png" class="logo-imagen" alt="Logo Smile Service">
         </div>
         <nav>
             <a href="#home">Home</a>
-<div class="services-dropdown">
-    <a href="#services" class="services-link">Services</a>
-    <div class="dropdown-menu">
-        <a href="moving_services_updated.html">Moving</a>
-        <a href="pickup.html">Pick Up and Delivery</a>
-        <a href="junkremoval.html">Junk Removal</a>
-    </div>
-</div>
-<a href="#about">About</a>
-<a href="#reviews">Reviews</a>
-<a href="#contact">Contact</a>
-<span class="cta-button">GET FREE QUOTE</span>
+            <div class="services-dropdown">
+                <a href="#services" class="services-link">Services</a>
+                <div class="dropdown-menu">
+                    <a href="moving_services_updated.html">Moving</a>
+                    <a href="pickup.html">Pick Up and Delivery</a>
+                    <a href="junkremoval.html">Junk Removal</a>
+                </div>
+            </div>
+            <a href="#about">About</a>
+            <a href="#reviews">Reviews</a>
+            <a href="#contact">Contact</a>
+            <span class="cta-button">GET FREE QUOTE</span>
         </nav>
     </header>
 
@@ -1341,15 +1379,13 @@ body.menu-open {
             </div>
             <div class="hero-buttons">
                 <button class="primary-button">GET FREE QUOTE</button>
-                <button class="secondary-button">VIEW OUR SERVICES</button>
+                <a href="#services" class="secondary-button">VIEW OUR SERVICES</a>
             </div>
         </div>
 
         <div class="quote-form">
             <div class="form-header">
                 <h2>Get Your Free Quote</h2>
-                <div class="stars">★ ★ ★ ★ ★</div>
-                <p class="form-subtitle">Off Reseals or Real-licences</p>
             </div>
             <form>
                 <div class="form-group">
@@ -1361,20 +1397,22 @@ body.menu-open {
                 <div class="form-group">
                     <input type="tel" placeholder="Your Phone">
                 </div>
-                <div class="form-group">
-                    <select>
-                        <option>Your ZIP Code</option>
-                    </select>
+                 <div class="form-group">
+                    <input type="text" placeholder="Your ZIP code">
                 </div>
+               
                 <div class="form-group">
-                    <select>
-                        <option>Local Residential Moving</option>
+                    <select name="service_type">
+                        <option value="">Select Service Type</option>
+                        <option value="moving">Moving</option>
+                        <option value="junk_removal">Junk Removal</option>
+                        <option value="pickup_delivery">Pickup and Delivery</option>
                     </select>
                 </div>
                 <button type="submit" class="submit-button">GET FREE QUOTE</button>
             </form>
         </div>
-    </section>
+        </section>
 
     <section class="about-section">
         <div class="about-content">
@@ -1382,14 +1420,13 @@ body.menu-open {
                 <h2>ABOUT US</h2>
                 <h3>YOUR TRUSTED <span class="highlight">MOVERS</span> IN FLORIDA</h3>
                 <p class="about-description">
-                    With over 10 years of experience, we are Florida's top-rated moving company, dedicated to providing exceptional moving services.
+                   Smile Service is a company focused on Moving, Junk Removal, and Pick Up & Delivery. We believe every transition is more than just a service, it is an important moment of change, growth, and new beginnings. That is why we approach every job with professionalism, care, and positive energy, making sure your experience is smooth, organized, and stress free from start to finish. We are committed to handling your belongings with respect and attention to detail, while providing reliable and efficient service you can trust. We don’t just move items, we support your journey forward with dedication, responsibility and good vibes!
                 </p>
                 <p class="about-description">
-                    Our licensed and insured movers are committed to delivering stress-free and efficient moves for our customers. We take pride in handling your belongings as if they were our own and ensuring your complete satisfaction with every move.
+                    Because every move deserves a smile.
                 </p>
                 <button class="about-button">LEARN MORE ABOUT US</button>
                 <div class="locally-owned">
-                    <span class="flag-icon">🏴</span>
                     <div>
                         <span class="locally-text">LOCALLY <span class="owned-highlight">OWNED</span></span><br>
                         <span class="operated-text">& OPERATED</span>
@@ -1401,41 +1438,36 @@ body.menu-open {
     </section>
 
     <section class="services-section">
-        <h2>What we Offer</h2>
+        <h2 id="services">What we Offer</h2>
         <p class="services-subtitle">Comprehensive moving solutions tailored to meet your needs anywhere in Florida.</p>
-    
+
         <div class="services-grid">
             <a href="moving_services_updated.html" class="service-card-new">
-                <div class="service-bg"
-                    style="background-image: url('imagenes/Moving.jpg');">
+                <div class="service-bg" style="background-image: url('imagenes/Moving.jpg');">
                     <div class="service-overlay">
                         <h3>Moving</h3>
-                       <span class="arrow">→</span>
+                        <span class="arrow"><i class="fa-solid fa-arrow-right"></i></span>
+
                     </div>
                 </div>
             </a>
             <a href="junkremoval.html" class="service-card-new">
-                <div class="service-bg"
-                    style="background-image: url('imagenes/junk-removal.jpg');">
+                <div class="service-bg" style="background-image: url('imagenes/junk-removal.jpg');">
                     <div class="service-overlay">
                         <h3>Junk Removal</h3>
-                        <span class="arrow">→</span>
+                        <span class="arrow"><i class="fa-solid fa-arrow-right"></i></span>
+
                     </div>
                 </div>
             </a>
             <a href="pickup.html" class="service-card-new">
-                <div class="service-bg"
-                    style="background-image: url('imagenes/pickup-delivery.jpg');">
+                <div class="service-bg" style="background-image: url('imagenes/pickup-delivery.jpg');">
                     <div class="service-overlay">
                         <h3>Pickup and Delivery</h3>
-                        <span class="arrow">→</span>
+                        <span class="arrow"><i class="fa-solid fa-arrow-right"></i></span>
                     </div>
                 </div>
             </a>
-
-           
-
-            
         </div>
 
         <button class="get-quote-button">GET A QUOTE</button>
@@ -1444,14 +1476,16 @@ body.menu-open {
     <section class="testimonials-section">
         <h2>Feedback from Our Clients</h2>
         <p class="testimonials-subtitle">Read testimonials from happy customers across Florida</p>
-        
+
         <div class="testimonials-grid">
             <div class="testimonial-card">
                 <div class="testimonial-stars">★★★★★</div>
                 <div class="testimonial-date">Feb 16, 2024</div>
                 <h3>Residential Move</h3>
                 <p class="testimonial-text">
-                    Moving Company handled our relocation from Orlando to Miami with exceptional efficiency. Prized our devices came secured, scratch-free, our keepsakes, and marching belongings. Their time fare compile more wasteful. Im lastlocated hager!
+                    Moving Company handled our relocation from Orlando to Miami with exceptional efficiency. Prized our
+                    devices came secured, scratch-free, our keepsakes, and marching belongings. Their time fare compile
+                    more wasteful. Im lastlocated hager!
                 </p>
                 <p class="testimonial-author">Thomas R.</p>
             </div>
@@ -1461,7 +1495,9 @@ body.menu-open {
                 <div class="testimonial-date">Um: 9, 2024</div>
                 <h3>Commercial Relocation</h3>
                 <p class="testimonial-text">
-                    "We chose Miamiasy from ohL.ir our office relocation. Total lyas tare Nico taller a transition and hassles. verste meg ensemble sr regolged! Posik tted weree Pages until De we neee heard monocarboxylic tern. Prater aget actuar de errn, nice enthusi tones chico negativas ."
+                    "We chose Miamiasy from ohL.ir our office relocation. Total lyas tare Nico taller a transition and
+                    hassles. verste meg ensemble sr regolged! Posik tted weree Pages until De we neee heard
+                    monocarboxylic tern. Prater aget actuar de errn, nice enthusi tones chico negativas ."
                 </p>
                 <p class="testimonial-author">Sarah L.</p>
             </div>
@@ -1471,7 +1507,9 @@ body.menu-open {
                 <div class="testimonial-date">Drer: 12, 2023</div>
                 <h3>Long Distance Moving</h3>
                 <p class="testimonial-text">
-                    "Go se feeling u with ch our nental Florida's moove. Staurrting fulfilling nien Slab territories hathenattici nominee l hm invasion medie orginarento pañam. Theny alta lög excelled communicación any so panging. Mills Pince frictions: Der no striessa!"
+                    "Go se feeling u with ch our nental Florida's moove. Staurrting fulfilling nien Slab territories
+                    hathenattici nominee l hm invasion medie orginarento pañam. Theny alta lög excelled communicación
+                    any so panging. Mills Pince frictions: Der no striessa!"
                 </p>
                 <p class="testimonial-author">James B.</p>
             </div>
@@ -1488,12 +1526,12 @@ body.menu-open {
         <button class="final-cta-button">GET FREE QUOTE</button>
     </section>
 
-    
+
 
     <section class="portfolio-section">
         <h2>OUR RECENT WORK</h2>
         <p class="portfolio-subtitle">Browse through our portfolio of successful moves across Florida.</p>
-        
+
         <div class="portfolio-filters">
             <button class="filter-btn active">All</button>
             <button class="filter-btn">Residential</button>
@@ -1516,32 +1554,33 @@ body.menu-open {
             <div class="footer-column">
                 <h3>GET IN TOUCH</h3>
                 <div class="footer-logo">
-                    <div class="footer-logo-icon">★</div>
+                    <img src="imagenes/logo-smile-service.png" class="logo-footer" alt="Logo">
                     <div class="footer-logo-text">
                         <strong>MOVING COMPANY</strong>
-                        <p>Florida's trusted moving company offering top-rated residential commercialeries moving Pionncos, jintelci, Martin, Prinrfrit, Tianpa &</p>
+                        <p>Florida's trusted moving company offering top-rated residential commercialeries moving
+                            Pionncos, jintelci, Martin, Prinrfrit, Tianpa &</p>
                     </div>
                 </div>
                 <div class="footer-contact">
-                    <p>📞 (305) 800-1234</p>
-                    <p>✉️ info@movingcompany.com</p>
+                    <p><i class="fa-solid fa-phone"></i> 7273704008</p>
+                    <p><i class="fa-solid fa-envelope"></i> smileserviceslog@gmail.com</p>
                 </div>
             </div>
 
             <div class="footer-column">
                 <h3>QUICK LINKS</h3>
                 <ul class="footer-links">
-                    <li>🏠 Home</li>
-                    <li>📋 Services</li>
-                    <li>ℹ️ About</li>
-                    <li>⭐ Reviews</li>
-                    <li>📧 Contact</li>
+                    <li class="list-link"><i class="fa-solid fa-circle circle-icon"></i> Home</li>
+                    <li class="list-link"><i class="fa-solid fa-circle circle-icon"></i> Services</li>
+                    <li class="list-link"><i class="fa-solid fa-circle circle-icon"></i> About</li>
+                    <li class="list-link"><i class="fa-solid fa-circle circle-icon"></i> Reviews</li>
+                    <li class="list-link"><i class="fa-solid fa-circle circle-icon"></i> Contact</li>
                 </ul>
             </div>
 
             <div class="footer-column quote-box">
                 <h3>GET A FREE QUOTE</h3>
-                <p class="quote-phone">📞 (305) 800-1234</p>
+                <p class="quote-phone"><i class="fa-solid fa-phone"></i> 7273704008</p>
                 <button class="footer-quote-btn">GET FREE QUOTE</button>
             </div>
         </div>
@@ -1556,80 +1595,94 @@ body.menu-open {
         </div>
 
         <div class="footer-cta">
-            <span>READY TO MOVE? CALL <span class="cta-phone">(305) 800-1234</span></span>
+            <span>READY TO MOVE? CALL <span class="cta-phone">7273704008</span></span>
             <button class="footer-cta-btn">GET FREE QUOTE</button>
         </div>
     </footer>
 
-   <script>
+    <script>
 
-    // Menú Hamburguesa
-    document.addEventListener('DOMContentLoaded', function() {
-        const nav = document.querySelector('nav');
-        const header = document.querySelector('header');
-        
-        // Crear botón hamburguesa
-        const hamburger = document.createElement('div');
-        hamburger.className = 'hamburger';
-        hamburger.innerHTML = `
+        // Menú Hamburguesa
+        document.addEventListener('DOMContentLoaded', function () {
+            const nav = document.querySelector('nav');
+            const header = document.querySelector('header');
+
+            // Crear botón hamburguesa
+            const hamburger = document.createElement('div');
+            hamburger.className = 'hamburger';
+            hamburger.innerHTML = `
             <span></span>
             <span></span>
             <span></span>
         `;
-        
-        // Insertar hamburguesa después del logo
-        header.insertBefore(hamburger, nav);
-        
-        // Toggle menú
-        hamburger.addEventListener('click', function() {
-            hamburger.classList.toggle('active');
-            nav.classList.toggle('active');
-            document.body.classList.toggle('menu-open');
-        });
-        
-        // Funcionalidad del dropdown en mobile
-        const servicesDropdown = document.querySelector('.services-dropdown');
-        const servicesLink = servicesDropdown.querySelector('.services-link');
-        const dropdownLinks = servicesDropdown.querySelectorAll('.dropdown-menu a');
-        
-        servicesLink.addEventListener('click', function(e) {
-            // En mobile, prevenir navegación y toggle dropdown
-            if (window.innerWidth <= 767) {
-                e.preventDefault();
-                servicesDropdown.classList.toggle('active');
-            }
-        });
-        
-        // Cerrar menú al hacer click en links del dropdown
-        dropdownLinks.forEach(link => {
-            link.addEventListener('click', function() {
-                hamburger.classList.remove('active');
-                nav.classList.remove('active');
-                document.body.classList.remove('menu-open');
-                servicesDropdown.classList.remove('active');
+
+            // Insertar hamburguesa después del logo
+            header.insertBefore(hamburger, nav);
+
+            // Toggle menú
+            hamburger.addEventListener('click', function () {
+                hamburger.classList.toggle('active');
+                nav.classList.toggle('active');
+                document.body.classList.toggle('menu-open');
+            });
+
+            // Funcionalidad del dropdown en mobile
+            const servicesDropdown = document.querySelector('.services-dropdown');
+            const servicesLink = servicesDropdown.querySelector('.services-link');
+            const dropdownLinks = servicesDropdown.querySelectorAll('.dropdown-menu a');
+
+            servicesLink.addEventListener('click', function (e) {
+                // En mobile, prevenir navegación y toggle dropdown
+                if (window.innerWidth <= 767) {
+                    e.preventDefault();
+                    servicesDropdown.classList.toggle('active');
+                }
+            });
+
+            // Cerrar menú al hacer click en links del dropdown
+            dropdownLinks.forEach(link => {
+                link.addEventListener('click', function () {
+                    hamburger.classList.remove('active');
+                    nav.classList.remove('active');
+                    document.body.classList.remove('menu-open');
+                    servicesDropdown.classList.remove('active');
+                });
+            });
+
+            // Cerrar menú al hacer click en otros links (excepto services)
+            const navLinks = nav.querySelectorAll('a:not(.services-link), .cta-button');
+            navLinks.forEach(link => {
+                link.addEventListener('click', function () {
+                    hamburger.classList.remove('active');
+                    nav.classList.remove('active');
+                    document.body.classList.remove('menu-open');
+                });
+            });
+
+            // Manejar resize de ventana
+            window.addEventListener('resize', function () {
+                if (window.innerWidth > 767) {
+                    servicesDropdown.classList.remove('active');
+                }
             });
         });
-        
-        // Cerrar menú al hacer click en otros links (excepto services)
-        const navLinks = nav.querySelectorAll('a:not(.services-link), .cta-button');
-        navLinks.forEach(link => {
-            link.addEventListener('click', function() {
-                hamburger.classList.remove('active');
-                nav.classList.remove('active');
-                document.body.classList.remove('menu-open');
-            });
-        });
-        
-        // Manejar resize de ventana
-        window.addEventListener('resize', function() {
-            if (window.innerWidth > 767) {
-                servicesDropdown.classList.remove('active');
+
+        window.addEventListener('scroll', function () {
+            const header = document.querySelector('header');
+
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
             }
         });
-    });
+    </script>
 
-    
+    <!-- EmailJS Library -->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 
-  </script>
+<!-- Tu archivo JavaScript personalizado -->
+<script src="emailHandler.js"></script>
 </body>
+
 </html>
