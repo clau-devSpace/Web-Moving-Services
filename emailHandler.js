@@ -61,7 +61,7 @@ function handleFormSubmit(event) {
         console.log('Email enviado exitosamente!', response.status, response.text);
         
         // Mostrar mensaje de éxito
-        showMessage('Su mensaje ha sido enviado y será contestado a la brevedad posible.', 'success');
+        showMessage('Your message has been sent and will be answered as soon as possible..', 'success');
         
         // Limpiar el formulario
         event.target.reset();
@@ -73,7 +73,7 @@ function handleFormSubmit(event) {
         console.error('Error al enviar el email:', error);
         
         // Mostrar mensaje de error
-        showMessage('Hubo un error al enviar el mensaje. Por favor, intenta nuevamente.', 'error');
+        showMessage('There was an error sending the message. Please try again.', 'error');
         
         // Restaurar el botón
         resetButton(submitButton, originalButtonText);

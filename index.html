@@ -138,6 +138,10 @@
             padding-left: 30px;
         }
 
+        button {
+            border: none;
+        }
+
         /* Para mobile */
         @media (max-width: 767px) {
             .dropdown-menu {
@@ -155,6 +159,16 @@
 
             .services-dropdown.active .dropdown-menu {
                 max-height: 200px;
+            }
+
+            .services-dropdown {
+                text-align: center;
+                width: 100%;
+            }
+
+            .services-link {
+                display: block;
+                width: 100%;
             }
 
             .dropdown-menu a {
@@ -839,7 +853,7 @@
             line-height: 2.5;
         }
 
-        .link-footer{
+        .link-footer {
             text-decoration: none;
             color: #333333;
         }
@@ -1353,7 +1367,8 @@
 <body>
     <header>
         <div class="logo">
-            <a href="index.html"><img src="imagenes/logo-smile-service.png" class="logo-imagen" alt="Logo Smile Service"></a>
+            <a href="index.html"><img src="imagenes/logo-smile-service.png" class="logo-imagen"
+                    alt="Logo Smile Service"></a>
         </div>
         <nav>
             <a href="index.html">Home</a>
@@ -1404,10 +1419,10 @@
                 <div class="form-group">
                     <input type="tel" placeholder="Your Phone">
                 </div>
-                 <div class="form-group">
+                <div class="form-group">
                     <input type="text" placeholder="Your ZIP code">
                 </div>
-               
+
                 <div class="form-group">
                     <select name="service_type">
                         <option value="">Select Service Type</option>
@@ -1419,7 +1434,7 @@
                 <button type="submit" class="submit-button">GET FREE QUOTE</button>
             </form>
         </div>
-        </section>
+    </section>
 
     <section class="about-section" id="about">
         <div class="about-content">
@@ -1427,7 +1442,13 @@
                 <h2>ABOUT US</h2>
                 <h3>YOUR TRUSTED <span class="highlight">MOVERS</span> IN FLORIDA</h3>
                 <p class="about-description">
-                   Smile Service is a company focused on Moving, Junk Removal, and Pick Up & Delivery. We believe every transition is more than just a service, it is an important moment of change, growth, and new beginnings. That is why we approach every job with professionalism, care, and positive energy, making sure your experience is smooth, organized, and stress free from start to finish. We are committed to handling your belongings with respect and attention to detail, while providing reliable and efficient service you can trust. We don’t just move items, we support your journey forward with dedication, responsibility and good vibes!
+                    Smile Service is a company focused on Moving, Junk Removal, and Pick Up & Delivery. We believe every
+                    transition is more than just a service, it is an important moment of change, growth, and new
+                    beginnings. That is why we approach every job with professionalism, care, and positive energy,
+                    making sure your experience is smooth, organized, and stress free from start to finish. We are
+                    committed to handling your belongings with respect and attention to detail, while providing reliable
+                    and efficient service you can trust. We don’t just move items, we support your journey forward with
+                    dedication, responsibility and good vibes!
                 </p>
                 <p class="about-description">
                     Because every move deserves a smile.
@@ -1480,6 +1501,27 @@
         <button class="get-quote-button contact-quote-btn">GET A QUOTE</button>
     </section>
 
+     <section class="portfolio-section">
+        <h2>OUR RECENT WORK</h2>
+        <p class="portfolio-subtitle">Browse through our portfolio of successful moves across Florida.</p>
+
+        <div class="portfolio-filters">
+            <button class="filter-btn active">All</button>
+            <button class="filter-btn">Residential</button>
+            <button class="filter-btn">Commercial</button>
+            <button class="filter-btn">Long Distance</button>
+        </div>
+
+        <div class="portfolio-grid">
+            <div class="portfolio-item-1"></div>
+            <div class="portfolio-item-2"></div>
+            <div class="portfolio-item-3"></div>
+            <div class="portfolio-item-4"></div>
+            <div class="portfolio-item-5"></div>
+            <div class="portfolio-item-6"></div>
+        </div>
+    </section>
+
     <section class="testimonials-section" id="reviews">
         <h2>Feedback from Our Clients</h2>
         <p class="testimonials-subtitle">Read testimonials from happy customers across Florida</p>
@@ -1522,7 +1564,7 @@
             </div>
         </div>
 
-        <button class="read-reviews-button">READ MORE REVIEWS</button>
+       <!--<button class="read-reviews-button">READ MORE REVIEWS</button>--> 
     </section>
 
     <section class="final-cta">
@@ -1531,29 +1573,6 @@
             <p>GET YOUR FREE QUOTE TODAY!</p>
         </div>
         <button class="final-cta-button contact-quote-btn">GET FREE QUOTE</button>
-    </section>
-
-
-
-    <section class="portfolio-section">
-        <h2>OUR RECENT WORK</h2>
-        <p class="portfolio-subtitle">Browse through our portfolio of successful moves across Florida.</p>
-
-        <div class="portfolio-filters">
-            <button class="filter-btn active">All</button>
-            <button class="filter-btn">Residential</button>
-            <button class="filter-btn">Commercial</button>
-            <button class="filter-btn">Long Distance</button>
-        </div>
-
-        <div class="portfolio-grid">
-            <div class="portfolio-item-1"></div>
-            <div class="portfolio-item-2"></div>
-            <div class="portfolio-item-3"></div>
-            <div class="portfolio-item-4"></div>
-            <div class="portfolio-item-5"></div>
-            <div class="portfolio-item-6"></div>
-        </div>
     </section>
 
     <footer class="footer" id="contact">
@@ -1577,11 +1596,21 @@
             <div class="footer-column">
                 <h3>QUICK LINKS</h3>
                 <ul class="footer-links">
-                    <a href="#" class="link-footer"><li class="list-link"><i class="fa-solid fa-circle circle-icon"></i> Home</li></a>
-                    <a href="#services" class="link-footer"><li class="list-link"><i class="fa-solid fa-circle circle-icon"></i> Services</li></a>
-                    <a href="#about" class="link-footer"><li class="list-link"><i class="fa-solid fa-circle circle-icon"></i> About</li></a>
-                    <a href="#review" class="link-footer"><li class="list-link"><i class="fa-solid fa-circle circle-icon"></i> Reviews</li></a>
-                    <a href="#contact" class="link-footer"><li class="list-link"><i class="fa-solid fa-circle circle-icon"></i> Contact</li></a>
+                    <a href="#" class="link-footer">
+                        <li class="list-link"><i class="fa-solid fa-circle circle-icon"></i> Home</li>
+                    </a>
+                    <a href="#services" class="link-footer">
+                        <li class="list-link"><i class="fa-solid fa-circle circle-icon"></i> Services</li>
+                    </a>
+                    <a href="#about" class="link-footer">
+                        <li class="list-link"><i class="fa-solid fa-circle circle-icon"></i> About</li>
+                    </a>
+                    <a href="#review" class="link-footer">
+                        <li class="list-link"><i class="fa-solid fa-circle circle-icon"></i> Reviews</li>
+                    </a>
+                    <a href="#contact" class="link-footer">
+                        <li class="list-link"><i class="fa-solid fa-circle circle-icon"></i> Contact</li>
+                    </a>
                 </ul>
             </div>
 
@@ -1686,11 +1715,11 @@
     </script>
 
     <!-- EmailJS Library -->
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 
-<!-- Tu archivo JavaScript personalizado -->
-<script src="emailHandler.js"></script>
-<script src="contactButtonHandler.js"></script>
+    <!-- Tu archivo JavaScript personalizado -->
+    <script src="emailHandler.js"></script>
+    <script src="contactButtonHandler.js"></script>
 </body>
 
 </html>

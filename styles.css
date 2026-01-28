@@ -561,6 +561,11 @@ body.menu-open {
   line-height: 2.5;
 }
 
+button{
+  border: none;
+  background: none;
+}
+
 .list-link {
   display: flex;
   align-items: center;
