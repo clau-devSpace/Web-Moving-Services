@@ -4,9 +4,9 @@
 
 // CONFIGURACIÓN - Reemplaza estos valores con tus credenciales de EmailJS
 const EMAILJS_CONFIG = {
-    serviceID: 'TU_SERVICE_ID',      // Reemplazar con tu Service ID
-    templateID: 'TU_TEMPLATE_ID',    // Reemplazar con tu Template ID
-    publicKey: 'TU_PUBLIC_KEY'       // Reemplazar con tu Public Key
+    serviceID: 'service_d160lpk',      // Reemplazar con tu Service ID
+    templateID: 'template_oz389s7',    // Reemplazar con tu Template ID
+    publicKey: 'OW-Rh7vIA8MGeTHW9'       // Reemplazar con tu Public Key
 };
 
 // Inicializar EmailJS cuando se carga la página

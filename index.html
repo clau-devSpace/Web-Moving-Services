@@ -839,6 +839,11 @@
             line-height: 2.5;
         }
 
+        .link-footer{
+            text-decoration: none;
+            color: #333333;
+        }
+
         .list-link {
             display: flex;
             align-items: center;
@@ -1083,6 +1088,7 @@
             .hero h1 {
                 font-size: 32px;
                 text-align: center;
+                margin-top: 60px;
             }
 
             .hero-description {
@@ -1302,6 +1308,7 @@
         @media (max-width: 480px) {
             .hero h1 {
                 font-size: 28px;
+                margin-top: 100px;
             }
 
             .services-section h2,
@@ -1570,11 +1577,11 @@
             <div class="footer-column">
                 <h3>QUICK LINKS</h3>
                 <ul class="footer-links">
-                    <li class="list-link"><i class="fa-solid fa-circle circle-icon"></i> Home</li>
-                    <li class="list-link"><i class="fa-solid fa-circle circle-icon"></i> Services</li>
-                    <li class="list-link"><i class="fa-solid fa-circle circle-icon"></i> About</li>
-                    <li class="list-link"><i class="fa-solid fa-circle circle-icon"></i> Reviews</li>
-                    <li class="list-link"><i class="fa-solid fa-circle circle-icon"></i> Contact</li>
+                    <a href="#" class="link-footer"><li class="list-link"><i class="fa-solid fa-circle circle-icon"></i> Home</li></a>
+                    <a href="#services" class="link-footer"><li class="list-link"><i class="fa-solid fa-circle circle-icon"></i> Services</li></a>
+                    <a href="#about" class="link-footer"><li class="list-link"><i class="fa-solid fa-circle circle-icon"></i> About</li></a>
+                    <a href="#review" class="link-footer"><li class="list-link"><i class="fa-solid fa-circle circle-icon"></i> Reviews</li></a>
+                    <a href="#contact" class="link-footer"><li class="list-link"><i class="fa-solid fa-circle circle-icon"></i> Contact</li></a>
                 </ul>
             </div>
 
