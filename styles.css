@@ -17,6 +17,14 @@ body {
   margin: auto;
 }
 
+.hero-bg-1 .container,
+.hero-bg-2 .container,
+.hero-bg-3 .container {
+  margin-left: 60px;
+  margin-right: auto;
+  width: auto;
+}
+
 /* ===================================
    HEADER (IGUAL AL INDEX LARGO)
    =================================== */
@@ -184,7 +192,7 @@ body.menu-open {
   height: 100vh;
   display: flex;
   align-items: center; /* Centrado vertical */
-  justify-content: center; /* Centrado horizontal (opcional) */
+  justify-content: flex-start; /* Centrado horizontal (opcional) */
 }
 
 .hero-bg-2 {
@@ -198,7 +206,7 @@ body.menu-open {
 }
 
 .hero-bg-3 {
-  background: url(imagenes/recent-work-1.jpg) center/cover no-repeat;
+  background: url(imagenes/foto-camion-ori-miguel.jpeg) center/cover no-repeat;
   position: relative;
   padding: 120px 0;
   height: 100vh;
