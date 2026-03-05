@@ -494,6 +494,132 @@ body.menu-open {
 }
 
 /* ===================================
+   MASCOT STYLES
+   =================================== */
+.mascot-divider {
+    text-align: center;
+    padding: 10px 0;
+    background: linear-gradient(180deg, #f5f5f5 0%, #ffffff 50%, #f5f5f5 100%);
+    overflow: hidden;
+}
+
+.mascot-img {
+    filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.15));
+    transition: transform 0.4s ease;
+}
+
+.mascot-img:hover {
+    transform: scale(1.05) rotate(2deg);
+}
+
+.mascot-truck {
+    max-width: 360px;
+    height: auto;
+    transform: rotate(-1deg);
+}
+
+.mascot-dolly {
+    max-width: 240px;
+    height: auto;
+    transform: rotate(2deg);
+}
+
+.mascot-couch {
+    max-width: 200px;
+    height: auto;
+    transform: rotate(-3deg);
+}
+
+/* FAQ side mascot layout */
+.faq-wrapper {
+    display: flex;
+    align-items: flex-start;
+    gap: 40px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.mascot-faq-side {
+    flex-shrink: 0;
+    position: sticky;
+    top: 120px;
+    align-self: flex-start;
+}
+
+.mascot-faq-side .mascot-couch {
+    max-width: 180px;
+    transform: rotate(-5deg);
+    filter: drop-shadow(0 10px 25px rgba(0, 0, 0, 0.15));
+}
+
+.faq-wrapper .faq-accordion {
+    flex: 1;
+}
+
+.mascot-peek-right {
+    position: absolute;
+    right: -20px;
+    top: -60px;
+    max-width: 180px;
+    height: auto;
+    z-index: 5;
+    transform: rotate(5deg);
+}
+
+.mascot-peek-right:hover {
+    transform: rotate(0deg) scale(1.08);
+}
+
+.mascot-inline-left {
+    float: left;
+    max-width: 180px;
+    margin: 0 30px 20px 0;
+    transform: rotate(-3deg);
+}
+
+/* Responsive mascot */
+@media (max-width: 1024px) {
+    .mascot-truck { max-width: 280px; }
+    .mascot-dolly { max-width: 200px; }
+    .mascot-couch { max-width: 160px; }
+    .mascot-faq-side .mascot-couch { max-width: 140px; }
+    .mascot-inline-left { max-width: 140px; }
+}
+
+@media (max-width: 767px) {
+    .mascot-truck { max-width: 220px; }
+    .mascot-dolly { max-width: 160px; }
+    .mascot-couch { max-width: 140px; }
+    .mascot-peek-right {
+        position: relative;
+        right: auto;
+        top: auto;
+        max-width: 150px;
+        display: block;
+        margin: 0 auto 20px;
+        transform: none;
+    }
+    .mascot-inline-left {
+        float: none;
+        display: block;
+        margin: 0 auto 20px;
+        max-width: 140px;
+    }
+    .faq-wrapper {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+    .mascot-faq-side {
+        position: static;
+    }
+    .mascot-faq-side .mascot-couch {
+        max-width: 150px;
+        transform: none;
+    }
+}
+
+/* ===================================
    FOOTER (IGUAL AL INDEX LARGO)
    =================================== */
 .footer {
